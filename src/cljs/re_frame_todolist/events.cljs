@@ -25,3 +25,8 @@
  ::toggle
  (fn [db [event id]]
    (update-in db [:todos id :completed] not)))
+
+(re-frame/reg-event-db
+ ::delete
+ (fn [db [event id]]
+   (update db :todos dissoc id)))

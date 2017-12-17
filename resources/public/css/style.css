@@ -11,3 +11,8 @@
 .completed {
     text-decoration: line-through;
 }
+
+.delete {
+    cursor: pointer;
+    margin-left: 5px;
+}

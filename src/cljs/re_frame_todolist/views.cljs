@@ -13,7 +13,10 @@
             :checked (and completed "checked")
             :on-change #(re-frame/dispatch [::events/toggle id])}]
    [:span {:class (when completed "completed")}
-    (:title todo)]])
+    (:title todo)]
+   [:span {:class "delete"
+           :on-click #(re-frame/dispatch [::events/delete id])}
+    "[x]"]])
 
 (defn todo-input
   []
