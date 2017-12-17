@@ -6,8 +6,14 @@
             [clojure.string :as cstr]))
 
 (defn todo-item
-  [todo]
-  [:li (:title todo)])
+  [{:keys [id completed] :as todo}]
+  [:li
+   [:input {:type "checkbox"
+            :class "toggle"
+            :checked (and completed "checked")
+            :on-change #(re-frame/dispatch [::events/toggle id])}]
+   [:span {:class (when completed "completed")}
+    (:title todo)]])
 
 (defn todo-input
   []
